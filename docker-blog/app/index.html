@@ -1,0 +1,33 @@
+<!-- app/templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Meu Blog Simples</title>
+</head>
+<body style="display: flex; justify-content: center;">
+    <div class="container">
+        <div style="display: flex; justify-content: center;">
+            <h1>Bem-vindo ao Meu Blog Simples!</h1>
+        </div>
+        <p style="display: flex; justify-content: center;">Este é um blog simples usando Docker e MySQL.</p>
+
+        <!-- Formulário para adicionar novo post -->
+        <form action="  " method="post" enctype="multipart/form-data">
+            <label for="title">Título:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="content">Conteúdo:</label>
+            <textarea id="content" name="content" required></textarea>
+
+            <label for="image">Imagem:</label>
+            <input type="file" id="image" name="image" accept="image/*">
+
+            <button type="submit">Adicionar Post</button>
+        </form>
+    </div>
+</body>
+</html>
