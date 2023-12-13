@@ -1,0 +1,26 @@
+# docker-compose.yml
+
+version: '3'
+services:
+  web:
+    build:
+      context: ./app
+    ports:
+      - "8080:80"
+  db:
+    build:
+      context: ./mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: blog_db
+      MYSQL_USER: blog_user
+      MYSQL_PASSWORD: blog_password
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+  image_server:
+    build:
+      context: ./image-content
+    ports:
+      - "8081:80"
+    volumes:
+      - ./image-content:/usr/share/nginx/html
