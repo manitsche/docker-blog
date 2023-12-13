@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: blog_db
+      MYSQL_USER: blog_user
+      MYSQL_PASSWORD: blog_password
+  image_server:
+    image: nginx:alpine
+    ports:
+      - "8081:80"
+    volumes:
+      - ./image-content:/usr/share/nginx/html
